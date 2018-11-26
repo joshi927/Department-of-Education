@@ -1,0 +1,26 @@
+# Creates a new zabbix template from linked template
+- name: Create Zabbix template using linked template
+  local_action:
+    module: zabbix_template
+    server_url: http://testhost.nsw.education
+    login_user: username
+    login_password: password
+    template_name: ExampleHost
+    template_json: "{'zabbix_export': {}}"
+    template_groups:
+      - Role
+      - Role2
+    link_templates:
+      - Example template1
+      - Example template2
+    clear_templates:
+      - Example template3
+      - Example template4
+    macros:
+      - macro: '{$EXAMPLE_MACRO1}'
+        value: 30000
+      - macro: '{$EXAMPLE_MACRO2}'
+        value: 3
+      - macro: '{$EXAMPLE_MACRO3}'
+        value: 'Example'
+    state: present

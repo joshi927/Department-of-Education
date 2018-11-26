@@ -1,0 +1,1 @@
+docker run --name testhost.nsw.education -e DB_SERVER_HOST="mysqlserver" -e MYSQL_USER="test" -e MYSQL_PASSWORD="test123" -d zabbix/zabbix-server-mysql:tag
